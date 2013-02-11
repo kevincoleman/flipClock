@@ -55,10 +55,10 @@ div.bottom div {
     bottom: .5em;
 }
 
-div.digit1, div.digit3 {
+div.hourTens, div.minuteTens {
     margin-right: .1rem;
 }
 
-div.digit2 {
+div.hourOnes {
     margin-right: .5rem;
 }

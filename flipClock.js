@@ -11,7 +11,7 @@ $(document).ready(function(){
         if ((time.getHours() > 9 && time.getHours() < 13) || (time.getHours() > 21 && time.getHours() < 24)) {
             firstDigit = 1;
         }
-        $('.digit1').text(firstDigit);
+        $('.hourTens').text(firstDigit);
     
 
         // Set & display second digit
@@ -19,20 +19,22 @@ $(document).ready(function(){
         if (time.getHours() > 12) {
             secondDigit = time.getHours() - 12;
         }
-        if (secondDigit > 9) {
-            secondDigit -= 10;
+        else if (time.getHours() > 9 && time.getHours() < 13) {
+            secondDigit = time.getHours() - 10;
+        } else {
+            secondDigit = time.getHours();
         }
-        $('.digit2').text(secondDigit);
+        $('.hourOnes').text(secondDigit);
 
 
         // Set & display third digit
         var thirdDigit = Math.floor(time.getMinutes() / 10);
-        $('.digit3').text(thirdDigit);        
+        $('.minuteTens').text(thirdDigit);        
 
 
         // Set & display fourth digit
-        var fourthDigit = (time.getMinutes() + "").charAt(1);
-        $('.digit4').text(fourthDigit);
+        var fourthDigit = (time.getMinutes() + "").charAt(0);
+        $('.minuteOnes').text(fourthDigit);
 
     }, 500);
 
