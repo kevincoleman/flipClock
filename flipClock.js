@@ -33,7 +33,12 @@ $(document).ready(function(){
 
 
         // Set & display fourth digit
-        var fourthDigit = (time.getMinutes() + "").charAt(0);
+        var fourthDigit = 0;
+        if (time.getMinutes < 10) {
+            fourthDigit = time.getMinutes();
+        } else {
+            fourthDigit = (time.getMinutes() + "").charAt(1);
+        }
         $('.minuteOnes').text(fourthDigit);
 
     }, 500);
