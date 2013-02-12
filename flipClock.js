@@ -15,12 +15,14 @@ $(document).ready(function(){
     
 
         // Set & display second digit
-        var secondDigit = time.getHours();
-        if (secondDigit > 12) {
-            secondDigit -= 12;
+        var secondDigit = 0;
+        if (time.getHours() > 12) {
+            secondDigit = time.getHours() - 12;
         }
-        if (secondDigit > 9) {
-            secondDigit -= 10;
+        else if (time.getHours() > 9 && time.getHours() < 13) {
+            secondDigit = time.getHours() - 10;
+        } else {
+            secondDigit = time.getHours();
         }
         $('.hourOnes').text(secondDigit);
 
@@ -31,11 +33,13 @@ $(document).ready(function(){
 
 
         // Set & display fourth digit
-        var fourthDigit = time.getMinutes();
-        if (time.getMinutes > 9) {
-            fourthDigit = (time.getMinutes() + "")[0];
+        var fourthDigit = 0;
+        if (time.getMinutes < 10) {
+            fourthDigit = time.getMinutes();
+        } else {
+            fourthDigit = (time.getMinutes() + "").charAt(1);
         }
-        $('.minuteOnes').text(time.getMinutes());
+        $('.minuteOnes').text(fourthDigit);
 
     }, 500);
 
