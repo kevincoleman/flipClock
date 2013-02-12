@@ -15,29 +15,30 @@ $(document).ready(function(){
     
 
         // Set & display second digit
-        var secondDigit = 0;
-        if (time.getHours() > 12) {
-            secondDigit = time.getHours() - 12;
+        var secondDigit = time.getHours();
+        if (secondDigit > 12) {
+            secondDigit -= 12;
         }
-        else if (time.getHours() > 9 && time.getHours() < 13) {
-            secondDigit = time.getHours() - 10;
-        } else {
-            secondDigit = time.getHours();
+        if (secondDigit > 9) {
+            secondDigit -= 10;
         }
         $('.hourOnes').text(secondDigit);
 
 
         // Set & display third digit
-        var thirdDigit = Math.floor(time.getMinutes() / 10);
+        var thirdDigit = time.getMinutes();
+        if (thirdDigit < 9) {
+            thirdDigit = 0;
+        } else {
+            thirdDigit = (thirdDigit + "")[0];
+        }
         $('.minuteTens').text(thirdDigit);        
 
 
         // Set & display fourth digit
-        var fourthDigit = 0;
-        if (time.getMinutes < 10) {
-            fourthDigit = time.getMinutes();
-        } else {
-            fourthDigit = (time.getMinutes() + "").charAt(1);
+        var fourthDigit = time.getMinutes();
+        if (fourthDigit > 9) {
+            fourthDigit = (fourthDigit + "")[1];
         }
         $('.minuteOnes').text(fourthDigit);
 
