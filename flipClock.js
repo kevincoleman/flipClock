@@ -27,7 +27,7 @@ $(document).ready(function(){
 
         // Set & display third digit
         var thirdDigit = time.getMinutes();
-        if (thirdDigit < 9) {
+        if (thirdDigit < 10) {
             thirdDigit = 0;
         } else {
             thirdDigit = (thirdDigit + "")[0];
