@@ -30,29 +30,28 @@ div.top, div.bottom {
     margin: 0 auto;
 }
 
-div.top div, div.bottom div {
+div.digit{
     float: left;
     background-color: #000;
     width: 3rem;
+    vertical-align: middle;
+    -webkit-perspective: 1200px;
 }
 
 div.top {
-    height: .5em;
+    height: .57em;
     overflow: hidden;
 }
 
 div.bottom {
     margin: 5px 0 0;
-    height: .5em;
+    height: .43em;
     overflow: hidden;
 }
 
-div.top div {
-}
-
-div.bottom div {
+div.bottom div.digit {
     position: relative;
-    bottom: .5em;
+    bottom: .57em;
 }
 
 div.hourTens, div.minuteTens {
@@ -62,3 +61,31 @@ div.hourTens, div.minuteTens {
 div.hourOnes {
     margin-right: .5rem;
 }
+
+@-webkit-keyframes flipperBottom {
+    from { -webkit-transform: rotateX(-180deg);}
+    to   { -webkit-transform: rotateX(0deg);}
+}
+
+@-webkit-keyframes flipperTop {
+    from { -webkit-transform: rotateX(0deg);}
+    to   { -webkit-transform: rotateX(-180deg);}
+}
+
+.flipperTop {
+    -webkit-backface-visibility: hidden;
+    -webkit-animation-name: flipperTop;
+    -webkit-animation-timing-function: ease-in;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-duration: .5s;
+    -webkit-transform-style: preserve-3d;
+  }
+
+.flipperBottom {
+    -webkit-backface-visibility: hidden;
+    -webkit-animation-name: flipperBottom;
+    -webkit-animation-timing-function: ease-in;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-duration: .5s;
+    -webkit-transform-style: preserve-3d;
+  }
