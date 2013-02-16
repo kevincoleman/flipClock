@@ -2,50 +2,73 @@ $(document).ready(function(){
 
     setInterval(function() {
 
-        var time = new Date;
+        // Set Global Variables
+        var time = new Date();
 
+        var advancedTime = new Date();
+        advancedTime.setSeconds(time.getSeconds() + 1);
+        
+        var clock = new Object();
+        var advancedClock = new Object();
+
+
+
+        // Set clocks' digits
+        var setClockDigits = function(clockToSet, timeToUse) {
             // Set first digit
-            var firstDigit = 0;
-            if ((time.getHours() > 9 && time.getHours() < 13) || (time.getHours() > 21 && time.getHours() < 24)) {
-                firstDigit = 1;
+            clockToSet.firstDigit = 0;
+            if ((timeToUse.getHours() > 9 && timeToUse.getHours() < 13) || (timeToUse.getHours() > 21 && timeToUse.getHours() < 24)) {
+                clockToSet.firstDigit = 1;
             }
 
             // Set second digit
-            var secondDigit = time.getHours();
-            if (secondDigit > 12) {
-                secondDigit -= 12;
+            clockToSet.secondDigit = timeToUse.getHours();
+            if (clockToSet.secondDigit > 12) {
+                clockToSet.secondDigit -= 12;
             }
-            if (secondDigit > 9) {
-                secondDigit -= 10;
+            if (clockToSet.secondDigit > 9) {
+                clockToSet.secondDigit -= 10;
             }
 
             // Set third digit
-            var thirdDigit = time.getMinutes();
-            if (thirdDigit < 10) {
-                thirdDigit = 0;
+            clockToSet.thirdDigit = timeToUse.getMinutes();
+            if (clockToSet.thirdDigit < 10) {
+                clockToSet.thirdDigit = 0;
             } else {
-                thirdDigit = (thirdDigit + "")[0];
+                clockToSet.thirdDigit = (clockToSet.thirdDigit + "")[0];
             }
 
             // Set fourth digit
-            var fourthDigit = time.getMinutes();
-            if (fourthDigit > 9) {
-                fourthDigit = (fourthDigit + "")[1];
+            clockToSet.fourthDigit = timeToUse.getMinutes();
+            if (clockToSet.fourthDigit > 9) {
+                clockToSet.fourthDigit = (clockToSet.fourthDigit + "")[1];
             }
+        }
+
+        setClockDigits(clock, time);
+        setClockDigits(advancedClock, advancedTime)
+
+
 
         // Animate changing tiles
-        //if ((time.getSeconds() - 1) == 58) {
+        // Update this if statement to one that compares clock.digits to advancedClock.digits
+        if ((time.getSeconds() % 2) == 0) {
 
-        //    $('div.digit').html('<div class="flipper">0</div>');
-        //} else {
+                //start timer at 0
+                $('div.top div.digit').html('<div class="placeholder">4</div><div class="flipperTop">' + '5' + '</div>');
+                //timer reaches 500, hide flippertop, show flipperbottom
+                $('div.bottom div.digit').html('<div class="placeholder">4</div><div class="flipperBottom">' + '5' + '</div>');
+                //timer reaches 1000, hide flippers
 
-            $('.hourTens').text(firstDigit);
-            $('.hourOnes').text(secondDigit);
-            $('.minuteTens').text(thirdDigit);        
-            $('.minuteOnes').text(fourthDigit);
+        } else {
 
-        //}
+            $('.hourTens').text(clock.firstDigit);
+            $('.hourOnes').text(clock.secondDigit);
+            $('.minuteTens').text(clock.thirdDigit);        
+            $('.minuteOnes').text(clock.fourthDigit);
 
-    }, 500);
+        }
+
+    }, 1000);
 
 });

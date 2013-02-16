@@ -73,19 +73,25 @@ div.hourOnes {
 }
 
 .flipperTop {
+    position: relative;
+    bottom: 1.15em;
+    background-color: #000;
     -webkit-backface-visibility: hidden;
     -webkit-animation-name: flipperTop;
     -webkit-animation-timing-function: ease-in;
     -webkit-animation-iteration-count: 1;
-    -webkit-animation-duration: .5s;
+    -webkit-animation-duration: 1s;
     -webkit-transform-style: preserve-3d;
   }
 
 .flipperBottom {
+    position: relative;
+    bottom: 1.15em;
+    background-color: #000;
     -webkit-backface-visibility: hidden;
     -webkit-animation-name: flipperBottom;
     -webkit-animation-timing-function: ease-in;
     -webkit-animation-iteration-count: 1;
-    -webkit-animation-duration: .5s;
+    -webkit-animation-duration: 1s;
     -webkit-transform-style: preserve-3d;
   }
