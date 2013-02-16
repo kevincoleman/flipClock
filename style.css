@@ -14,14 +14,12 @@
 
 #content {
     clear: both;
-    height: 5rem;
-    width: 12.7rem;
     margin: 0 auto;
     overflow: hidden;
     position: relative;}
 
 html, body {
-    background-color: #121212;
+    background-color: #0a0a0a;
     height: 100%;
 }
 
@@ -32,10 +30,11 @@ div.top, div.bottom {
 
 div.digit{
     float: left;
-    background-color: #000;
-    width: 3rem;
+    background-color: #151515;
+    width: .7em;
     vertical-align: middle;
     -webkit-perspective: 1200px;
+    -webkit-border-radius: .0625em;
 }
 
 div.top {
@@ -46,6 +45,7 @@ div.top {
 div.bottom {
     margin: 5px 0 0;
     height: .43em;
+    padding-bottom: .15em;
     overflow: hidden;
 }
 
@@ -55,15 +55,15 @@ div.bottom div.digit {
 }
 
 div.firstDigit, div.thirdDigit {
-    margin-right: .1rem;
+    margin-right: .05em;
 }
 
 div.secondDigit {
-    margin-right: .5rem;
+    margin-right: .2em;
 }
 
 @-webkit-keyframes flipperBottom {
-    from { -webkit-transform: rotateX(-180deg);}
+    from { -webkit-transform: rotateX(180deg);}
     to   { -webkit-transform: rotateX(0deg);}
 }
 
@@ -75,7 +75,8 @@ div.secondDigit {
 .flipperTop {
     position: relative;
     bottom: 1.15em;
-    background-color: #000;
+    background-color: #151515;
+    -webkit-border-radius: .0625em;
     -webkit-backface-visibility: hidden;
     -webkit-animation-name: flipperTop;
     -webkit-animation-timing-function: ease-in;
@@ -87,7 +88,8 @@ div.secondDigit {
 .flipperBottom {
     position: relative;
     bottom: 1.15em;
-    background-color: #000;
+    background-color: #151515;
+    -webkit-border-radius: .0625em;
     -webkit-backface-visibility: hidden;
     -webkit-animation-name: flipperBottom;
     -webkit-animation-timing-function: ease-in;

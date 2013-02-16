@@ -17,7 +17,7 @@ $(document).ready(function(){
 
 
             // Set first digit
-            clockToSet.firstDigit = 0;
+            clockToSet.firstDigit = "";
 
             // Checks to decide "1" or "0" in 12-hour format 
             if ((timeToUse.getHours() > 9 && timeToUse.getHours() < 13)
@@ -66,13 +66,17 @@ $(document).ready(function(){
         setClockDigits(advancedClock, advancedTime)
 
 
-
+        if (clock.firstDigit == "") {
+            $('#content').css('width', '2.4em');
+        } else {
+            $('#content').css('width', '3.1em')
+        }
 
         // Animation
         for (changeDigit in clock) {
 
             // Update the digits as necessary
-            $('.' + changeDigit).text(clock[changeDigit]);
+            $('.' + changeDigit).html(clock[changeDigit]);
 
             // Play animation to change digits
             if (advancedClock[changeDigit] !== clock[changeDigit]) {
