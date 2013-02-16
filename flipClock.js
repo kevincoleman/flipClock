@@ -12,7 +12,6 @@ $(document).ready(function(){
         var advancedClock = new Object();
 
 
-
         // Set clocks' digits
         var setClockDigits = function(clockToSet, timeToUse) {
             // Set first digit
@@ -49,24 +48,19 @@ $(document).ready(function(){
         setClockDigits(advancedClock, advancedTime)
 
 
+        $('.firstDigit').text(clock.firstDigit);
+        $('.secondDigit').text(clock.secondDigit);
+        $('.thirdDigit').text(clock.thirdDigit);        
+        $('.fourthDigit').text(clock.fourthDigit);
+
 
         // Animate changing tiles
-        // Update this if statement to one that compares clock.digits to advancedClock.digits
-        if ((time.getSeconds() % 2) == 0) {
-
-                //start timer at 0
-                $('div.top div.digit').html('<div class="placeholder">4</div><div class="flipperTop">' + '5' + '</div>');
-                //timer reaches 500, hide flippertop, show flipperbottom
-                $('div.bottom div.digit').html('<div class="placeholder">4</div><div class="flipperBottom">' + '5' + '</div>');
-                //timer reaches 1000, hide flippers
-
-        } else {
-
-            $('.hourTens').text(clock.firstDigit);
-            $('.hourOnes').text(clock.secondDigit);
-            $('.minuteTens').text(clock.thirdDigit);        
-            $('.minuteOnes').text(clock.fourthDigit);
-
+        for (changeDigit in clock) {
+            if (advancedClock[changeDigit] !== clock[changeDigit]) {
+                $('div.top div.' + changeDigit).html(advancedClock[changeDigit]);
+                $('div.top div.' + changeDigit).append('<div class="flipperTop">' + clock[changeDigit] + '</div>');
+                $('div.bottom div.' + changeDigit).append('<div class="flipperBottom">' + advancedClock[changeDigit] + '</div>');
+            }
         }
 
     }, 1000);

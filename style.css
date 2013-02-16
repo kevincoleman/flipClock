@@ -54,11 +54,11 @@ div.bottom div.digit {
     bottom: .57em;
 }
 
-div.hourTens, div.minuteTens {
+div.firstDigit, div.thirdDigit {
     margin-right: .1rem;
 }
 
-div.hourOnes {
+div.secondDigit {
     margin-right: .5rem;
 }
 
