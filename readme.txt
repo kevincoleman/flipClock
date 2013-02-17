@@ -5,4 +5,6 @@ I suggest using it as I do—as a screensaver via websaver (http://code.google.c
 12-hour: http://colemantest.com/flipClock
 24-hour: http://colemantest.com/flipClock24
 
+Because this is really just a replacement for my OSX screensaver, I built and tested in a Webkit-rendered environment (what Safari and Chrome use). No guarantees on other rendering engines.
+
 Enjoy!
