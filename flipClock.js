@@ -30,6 +30,11 @@ $(document).ready(function(){
             // Set second digit
             clockToSet.secondDigit = timeToUse.getHours();
             
+            if (clockToSet.secondDigit == 0) {
+                // to handle 12AM
+               clockToSet.secondDigit = 2;
+            }
+            
             if (clockToSet.secondDigit > 12) {
                 // to set to 12-hour format
                 clockToSet.secondDigit -= 12;
@@ -38,11 +43,6 @@ $(document).ready(function(){
             if (clockToSet.secondDigit > 9) {
                 // to handle tens-wrapping
                 clockToSet.secondDigit -= 10;
-            }
-
-            if (clockToSet.secondDigit == 0) {
-                // to handle 12AM
-                clockToSet.secondDigit = 2;
             }
 
 
