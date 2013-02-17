@@ -17,18 +17,22 @@ $(document).ready(function(){
 
 
             // Set first digit
-            clockToSet.firstDigit = timeToUse.getHours();
-            if (clockToSet.firstDigit < 10) {
-                clockToSet.firstDigit = 0;
-            } else {
-                clockToSet.firstDigit = (clockToSet.firstDigit + "")[0];
+            clockToSet.firstDigit = "";
+
+            // Checks to decide "1" or "0" in 12-hour format 
+            if ((timeToUse.getHours() > 9 && timeToUse.getHours() < 13)
+             || (timeToUse.getHours() > 21 && timeToUse.getHours() < 24)
+             || (timeToUse.getHours() == 0)) {
+                clockToSet.firstDigit = 1;
             }
 
 
             // Set second digit
             clockToSet.secondDigit = timeToUse.getHours();
-            if (clockToSet.secondDigit > 9) {
-                clockToSet.secondDigit = (clockToSet.secondDigit + "")[1];
+            
+            if (clockToSet.secondDigit > 12) {
+                // to set to 12-hour format
+                clockToSet.secondDigit -= 12;
             }
 
             if (clockToSet.secondDigit > 9) {
@@ -61,6 +65,12 @@ $(document).ready(function(){
         setClockDigits(clock, time);
         setClockDigits(advancedClock, advancedTime)
 
+
+        if (clock.firstDigit == "") {
+            $('#content').css('width', '2.4em');
+        } else {
+            $('#content').css('width', '3.1em')
+        }
 
         // Animation
         for (changeDigit in clock) {
