@@ -7,6 +7,4 @@ I suggest using it as I do—as a screensaver via websaver (http://code.google.c
 
 Because this is really just a replacement for my OSX screensaver, I built and tested in a Webkit-rendered environment (what Safari and Chrome use). No guarantees on other rendering engines.
 
-* It appears as though the current version of Chrome (OSX 24.0.1312.57) has just rolled back support of the backface-visibility property, so until they update to support it again, I suggest using Safari. Luckily, this is what websaver uses for displaying the page as a screensaver, so it works in that context.
-
 Enjoy!

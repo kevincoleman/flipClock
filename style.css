@@ -63,13 +63,13 @@ div.secondDigit {
 }
 
 @-webkit-keyframes flipperBottom {
-    from { -webkit-transform: rotateX(180deg);}
+    from { -webkit-transform: rotateX(-180deg);}
     to   { -webkit-transform: rotateX(0deg);}
 }
 
 @-webkit-keyframes flipperTop {
     from { -webkit-transform: rotateX(0deg);}
-    to   { -webkit-transform: rotateX(-180deg);}
+    to   { -webkit-transform: rotateX(180deg);}
 }
 
 .flipperTop {
@@ -78,6 +78,7 @@ div.secondDigit {
     background-color: #151515;
     -webkit-border-radius: .0625em;
     -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
     -webkit-animation-name: flipperTop;
     -webkit-animation-timing-function: ease-in;
     -webkit-animation-iteration-count: 1;
@@ -91,6 +92,7 @@ div.secondDigit {
     background-color: #151515;
     -webkit-border-radius: .0625em;
     -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
     -webkit-animation-name: flipperBottom;
     -webkit-animation-timing-function: ease-in;
     -webkit-animation-iteration-count: 1;
