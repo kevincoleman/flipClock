@@ -63,7 +63,7 @@ div.secondDigit {
 }
 
 @-webkit-keyframes flipperBottom {
-    from { -webkit-transform: rotateX(-180deg);}
+    from { -webkit-transform: rotateX(180deg);}
     to   { -webkit-transform: rotateX(0deg);}
 }
 
